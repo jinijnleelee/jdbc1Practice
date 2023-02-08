@@ -54,11 +54,22 @@ public class JDBCExExample5 {
 			
 			while(rs.next()) {
 				
-				String empName = rs.getString("EMP_NAME");
-				String hireDate = rs.getString("HIRE_DATE");
-				String gender = rs.getString("GENDER");
+				Employee1 eemp = new Employee1();
 				
-				list.add(new Employee1(empName,hireDate,gender));
+				
+				eemp.setEmpName(rs.getString("EMP_NAME"));
+				eemp.setHireDate( rs.getString("HIRE_DATE"));
+				// 현재행의 "입사일" 컬럼의 문자열 값을 얻어와 
+				//eemp가 참조하는 객체의 hireDate필드에 세팅
+				eemp.setGender(rs.getString("GENDER").charAt(0));
+				//-> char 자료형 매개변수 필요
+				//"중요 "
+				//java의 char 문자 1개 의미
+				//DB 칼럼값을 char 자료 
+				//String.charAt(index) 이용!
+				
+				//list 에 eemp 객체 추가 
+				list.add(eemp);
 				
 				
 				
@@ -74,6 +85,11 @@ public class JDBCExExample5 {
 				System.out.printf("%02d) %s / %s / %s\n"
 						,i+1,
 						list.get(i).getEmpName(),
+						//List.get(index) 
+						// list의 순서를 볼수 있다.
+						//list.get(0)하면 0번째 인덱스인 empNAme을 가져올수 있고 
+						//list.get(1)하면 1번째 인덱스인 HireDate을 가져올수 있음
+						
 						list.get(i).getHireDate(),
 						list.get(i).getGender());
 			}

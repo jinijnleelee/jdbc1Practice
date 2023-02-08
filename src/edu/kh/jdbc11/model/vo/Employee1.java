@@ -6,7 +6,7 @@ package edu.kh.jdbc11.model.vo;
 	private int salary;
 	private int annualIncome;
 	private String hireDate;
-	private String Gender;
+	private char Gender;
 	
 	public Employee1() {}
 	
@@ -21,7 +21,7 @@ package edu.kh.jdbc11.model.vo;
 }
 	
 	
-	public Employee1(String empName, String hireDate, String gender) {
+	public Employee1(String empName, String hireDate, char gender) {
 		super();
 		this.empName = empName;
 		this.hireDate = hireDate;
@@ -72,12 +72,12 @@ package edu.kh.jdbc11.model.vo;
 	}
 
 
-	public String getGender() {
+	public char getGender() {
 		return Gender;
 	}
 
 
-	public void setGender(String gender) {
+	public void setGender(char gender) {
 		this.Gender = gender;
 	}
 
